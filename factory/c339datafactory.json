@@ -1,0 +1,9 @@
+{
+	"name": "c339datafactory",
+	"location": "germanywestcentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "ff1ddb84-2e3a-4d8d-9c48-d4f74d43212e",
+		"tenantId": "f34cde18-202a-4840-a695-b6aea0d85ad0"
+	}
+}
