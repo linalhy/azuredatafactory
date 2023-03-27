@@ -48,17 +48,6 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "Prop_0",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "Prop_0",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
 									"name": "Id",
 									"type": "String",
 									"physicalType": "String"
@@ -252,17 +241,6 @@
 								},
 								"sink": {
 									"name": "High",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "Comments",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "Comments",
 									"type": "String"
 								}
 							},
