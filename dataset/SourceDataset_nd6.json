@@ -1,0 +1,120 @@
+{
+	"name": "SourceDataset_nd6",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorageDestination",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "transformed_1.csv",
+				"container": "testcontainer"
+			},
+			"columnDelimiter": ";",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Prop_0",
+				"type": "String"
+			},
+			{
+				"name": "Id",
+				"type": "String"
+			},
+			{
+				"name": "IndicatorCode",
+				"type": "String"
+			},
+			{
+				"name": "SpatialDimension",
+				"type": "String"
+			},
+			{
+				"name": "WorldBankIncomeGroup",
+				"type": "String"
+			},
+			{
+				"name": "TimeDimension",
+				"type": "String"
+			},
+			{
+				"name": "TimeDim",
+				"type": "String"
+			},
+			{
+				"name": "DisaggregatingDimension1",
+				"type": "String"
+			},
+			{
+				"name": "Sex",
+				"type": "String"
+			},
+			{
+				"name": "DisaggregatingDimension2",
+				"type": "String"
+			},
+			{
+				"name": "DisaggregatingDimension2ValueCode",
+				"type": "String"
+			},
+			{
+				"name": "DisaggregatingDimension3",
+				"type": "String"
+			},
+			{
+				"name": "DisaggregatingDimension3ValueCode",
+				"type": "String"
+			},
+			{
+				"name": "DataSourceDimension",
+				"type": "String"
+			},
+			{
+				"name": "DataSourceDimensionValueCode",
+				"type": "String"
+			},
+			{
+				"name": "Value",
+				"type": "String"
+			},
+			{
+				"name": "Prevalence",
+				"type": "String"
+			},
+			{
+				"name": "Low",
+				"type": "String"
+			},
+			{
+				"name": "High",
+				"type": "String"
+			},
+			{
+				"name": "Comments",
+				"type": "String"
+			},
+			{
+				"name": "Date",
+				"type": "String"
+			},
+			{
+				"name": "TimeDimensionValue",
+				"type": "String"
+			},
+			{
+				"name": "TimeDimensionBegin",
+				"type": "String"
+			},
+			{
+				"name": "TimeDimensionEnd",
+				"type": "String"
+			}
+		]
+	}
+}
