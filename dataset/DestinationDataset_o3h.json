@@ -1,0 +1,23 @@
+{
+	"name": "DestinationDataset_o3h",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorageDestination",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "test_data_destination",
+				"folderPath": "testDirectory",
+				"container": "testcontainer"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
