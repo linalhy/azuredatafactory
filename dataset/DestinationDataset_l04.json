@@ -1,0 +1,23 @@
+{
+	"name": "DestinationDataset_l04",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorageDestination",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "alpha.csv",
+				"folderPath": "testDirectory",
+				"container": "testcontainer"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
