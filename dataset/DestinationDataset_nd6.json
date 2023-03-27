@@ -1,0 +1,15 @@
+{
+	"name": "DestinationDataset_nd6",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseDestination",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"table": "transformed_1"
+		}
+	}
+}
