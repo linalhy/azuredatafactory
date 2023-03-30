@@ -1,0 +1,34 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "MoviesInput",
+						"type": "DatasetReference"
+					},
+					"name": "moviesinput"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "YearExtraction"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          movieId as string,",
+				"          title as string,",
+				"          genres as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> moviesinput",
+				"moviesinput derive(Year = toInteger(trim(right(title,6),'()'))) ~> YearExtraction"
+			]
+		}
+	}
+}
