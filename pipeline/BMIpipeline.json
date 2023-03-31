@@ -1,6 +1,50 @@
 {
 	"name": "BMIpipeline",
 	"properties": {
+		"activities": [
+			{
+				"name": "BMIdataflow",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "BMIdataflow",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			},
+			{
+				"name": "FilterByCountryIncome",
+				"type": "Filter",
+				"dependsOn": [
+					{
+						"activity": "BMIdataflow",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": []
+			}
+		],
+		"variables": {
+			"WorldBankIncomeGroup": {
+				"type": "Array"
+			}
+		},
 		"annotations": []
 	}
 }

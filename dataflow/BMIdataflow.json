@@ -1,5 +1,5 @@
 {
-	"name": "dataflow2",
+	"name": "BMIdataflow",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
@@ -14,7 +14,15 @@
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "ByCountryIncome",
+					"description": "Filtering by country income"
+				},
+				{
+					"name": "SelectNonEmptyColumns"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          Id as string,",
@@ -43,7 +51,35 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> BMIinput"
+				"     ignoreNoFilesFound: false) ~> BMIinput",
+				"SelectNonEmptyColumns filter(WorldBankIncomeGroup =='HighIncome' || WorldBankIncomeGroup =='UpperMiddleIncome' || WorldBankIncomeGroup =='LowerMiddleIncome'|| WorldBankIncomeGroup =='LowerIncome') ~> ByCountryIncome",
+				"BMIinput select(mapColumn(",
+				"          Id,",
+				"          IndicatorCode,",
+				"          SpatialDimension,",
+				"          WorldBankIncomeGroup,",
+				"          TimeDimension,",
+				"          Year = TimeDim,",
+				"          DisaggregatingDimension1,",
+				"          Sex,",
+				"          DisaggregatingDimension2,",
+				"          DisaggregatingDimension2ValueCode,",
+				"          DisaggregatingDimension3,",
+				"          DisaggregatingDimension3ValueCode,",
+				"          DataSourceDimension,",
+				"          DataSourceDimensionValueCode,",
+				"          Value,",
+				"          Prevalence,",
+				"          Low,",
+				"          High,",
+				"          Comments,",
+				"          Date,",
+				"          TimeDimensionValue,",
+				"          TimeDimensionBegin,",
+				"          TimeDimensionEnd",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> SelectNonEmptyColumns"
 			]
 		}
 	}
