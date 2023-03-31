@@ -19,7 +19,7 @@
 						"referenceName": "bmimean_output",
 						"type": "DatasetReference"
 					},
-					"name": "BMIOutput"
+					"name": "bmimeanOutput"
 				}
 			],
 			"transformations": [
@@ -96,7 +96,7 @@
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> BMIOutput"
+				"     skipDuplicateMapOutputs: true) ~> bmimeanOutput"
 			]
 		}
 	}
