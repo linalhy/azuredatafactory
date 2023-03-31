@@ -1,0 +1,50 @@
+{
+	"name": "dataflow2",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "bmimean_input",
+						"type": "DatasetReference"
+					},
+					"name": "BMIinput",
+					"description": "Untransformed BMI mean dataset"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          Id as string,",
+				"          IndicatorCode as string,",
+				"          SpatialDimension as string,",
+				"          WorldBankIncomeGroup as string,",
+				"          TimeDimension as string,",
+				"          TimeDim as string,",
+				"          DisaggregatingDimension1 as string,",
+				"          Sex as string,",
+				"          DisaggregatingDimension2 as string,",
+				"          DisaggregatingDimension2ValueCode as string,",
+				"          DisaggregatingDimension3 as string,",
+				"          DisaggregatingDimension3ValueCode as string,",
+				"          DataSourceDimension as string,",
+				"          DataSourceDimensionValueCode as string,",
+				"          Value as string,",
+				"          Prevalence as string,",
+				"          Low as string,",
+				"          High as string,",
+				"          Comments as string,",
+				"          Date as string,",
+				"          TimeDimensionValue as string,",
+				"          TimeDimensionBegin as string,",
+				"          TimeDimensionEnd as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> BMIinput"
+			]
+		}
+	}
+}
