@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "BMIdataflow",
+				"name": "BMIdataflow1",
 				"type": "ExecuteDataFlow",
 				"dependsOn": [],
 				"policy": {
@@ -25,19 +25,6 @@
 					},
 					"traceLevel": "Fine"
 				}
-			},
-			{
-				"name": "FilterByCountryIncome",
-				"type": "Filter",
-				"dependsOn": [
-					{
-						"activity": "BMIdataflow",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"userProperties": []
 			}
 		],
 		"variables": {
