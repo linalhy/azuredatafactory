@@ -13,7 +13,15 @@
 					"description": "Untransformed BMI mean dataset"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "bmimean_output",
+						"type": "DatasetReference"
+					},
+					"name": "BMIOutput"
+				}
+			],
 			"transformations": [
 				{
 					"name": "ByCountryIncome",
@@ -52,8 +60,8 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> BMIinput",
-				"SelectNonEmptyColumns filter(WorldBankIncomeGroup =='HighIncome' || WorldBankIncomeGroup =='UpperMiddleIncome' || WorldBankIncomeGroup =='LowerMiddleIncome'|| WorldBankIncomeGroup =='LowerIncome') ~> ByCountryIncome",
-				"BMIinput select(mapColumn(",
+				"BMIinput filter(WorldBankIncomeGroup =='HighIncome' || WorldBankIncomeGroup =='UpperMiddleIncome' || WorldBankIncomeGroup =='LowerMiddleIncome'|| WorldBankIncomeGroup =='LowerIncome') ~> ByCountryIncome",
+				"ByCountryIncome select(mapColumn(",
 				"          Id,",
 				"          IndicatorCode,",
 				"          SpatialDimension,",
@@ -64,22 +72,29 @@
 				"          Sex,",
 				"          DisaggregatingDimension2,",
 				"          DisaggregatingDimension2ValueCode,",
-				"          DisaggregatingDimension3,",
-				"          DisaggregatingDimension3ValueCode,",
-				"          DataSourceDimension,",
-				"          DataSourceDimensionValueCode,",
 				"          Value,",
 				"          Prevalence,",
 				"          Low,",
 				"          High,",
-				"          Comments,",
 				"          Date,",
-				"          TimeDimensionValue,",
 				"          TimeDimensionBegin,",
 				"          TimeDimensionEnd",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> SelectNonEmptyColumns"
+				"     skipDuplicateMapOutputs: true) ~> SelectNonEmptyColumns",
+				"SelectNonEmptyColumns sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          Column_1 as string,",
+				"          Column_2 as string,",
+				"          Column_3 as string,",
+				"          Column_4 as string",
+				"     ),",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> BMIOutput"
 			]
 		}
 	}
