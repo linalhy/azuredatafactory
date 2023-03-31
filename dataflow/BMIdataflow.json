@@ -1,6 +1,7 @@
 {
 	"name": "BMIdataflow",
 	"properties": {
+		"description": "Dataflow to transform mean BMI dataset",
 		"type": "MappingDataFlow",
 		"typeProperties": {
 			"sources": [
@@ -91,7 +92,7 @@
 				"          Column_3 as string,",
 				"          Column_4 as string",
 				"     ),",
-				"     partitionFileNames:['BMIoutput.csv'],",
+				"     partitionFileNames:['bmimean_output.csv'],",
 				"     truncate: true,",
 				"     umask: 0022,",
 				"     preCommands: [],",
