@@ -1,9 +1,9 @@
 {
-	"name": "pipeline2",
+	"name": "BMIPipeline",
 	"properties": {
 		"activities": [
 			{
-				"name": "Data flow1",
+				"name": "bmidataflow",
 				"type": "ExecuteDataFlow",
 				"dependsOn": [],
 				"policy": {
@@ -15,14 +15,39 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
+					"dataflow": {
+						"referenceName": "bmidataflow",
+						"type": "DataFlowReference"
+					},
 					"compute": {
 						"coreCount": 8,
 						"computeType": "General"
 					},
 					"traceLevel": "Fine"
 				}
+			},
+			{
+				"name": "Filter1",
+				"type": "Filter",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@variables('WorldBankIncomeGroup')",
+						"type": "Expression"
+					},
+					"condition": {
+						"value": "@equals('HighIncome', 'UpperMiddleIncome', 'LowerMiddleIncome', 'LowerIncome')",
+						"type": "Expression"
+					}
+				}
 			}
 		],
+		"variables": {
+			"WorldBankIncomeGroup": {
+				"type": "Array"
+			}
+		},
 		"annotations": []
 	}
 }
