@@ -28,7 +28,8 @@
 					"description": "Filtering by country income"
 				},
 				{
-					"name": "SelectNonEmptyColumns"
+					"name": "SelectNonEmptyColumns",
+					"description": "Renaming year column, removing empty columns"
 				}
 			],
 			"scriptLines": [
