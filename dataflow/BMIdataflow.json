@@ -96,7 +96,8 @@
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> bmimeanOutput"
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> bmimeanOutput"
 			]
 		}
 	}
